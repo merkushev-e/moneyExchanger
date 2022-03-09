@@ -40,6 +40,11 @@ android {
 dependencies {
 
 
+    //Koin for Android
+    def koin_version= "3.1.2"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
 
     // Coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
