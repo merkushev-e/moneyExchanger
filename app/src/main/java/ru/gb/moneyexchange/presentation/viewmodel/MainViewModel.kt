@@ -23,7 +23,6 @@ class MainViewModel(private val interactor: MainInteractor) : ViewModel() {
     fun getData(isOnline: Boolean) {
         liveDataToObserve.value = AppState.Loading(null)
         cancelJob()
-
         viewModelCoroutineScope.launch {
             withContext(Dispatchers.IO) {
                 liveDataToObserve.postValue(interactor.getData(isOnline)) }

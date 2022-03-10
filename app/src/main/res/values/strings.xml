@@ -2,4 +2,12 @@
     <string name="app_name">MoneyExchange</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_textview_stub">Error</string>
+    <string name="reload_button">Reload</string>
+    <string name="undefined_error">Undefined error</string>
+    <string name="AUD_stab">AUD</string>
+    <string name="Valute_stab">Valute name</string>
+    <string name="value">70.4</string>
+    <string name="equal">=</string>
+    <string name="nominal">1</string>
 </resources>
