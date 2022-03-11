@@ -10,4 +10,5 @@
     <string name="value">70.4</string>
     <string name="equal">=</string>
     <string name="nominal">1</string>
+    <string name="empty_server_response_on_success">Response from server is empty</string>
 </resources>

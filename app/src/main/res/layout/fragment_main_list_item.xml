@@ -18,16 +18,18 @@
             android:orientation="horizontal">
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/flag_icon"
+                android:layout_margin="@dimen/padding_10dp"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:padding="@dimen/padding_10dp"
-                app:srcCompat="@drawable/ic_launcher_background">
+                app:srcCompat="@drawable/ad">
             </com.google.android.material.imageview.ShapeableImageView>
 
             <TextView
                 android:id="@+id/charcode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:padding="@dimen/padding_10dp"
                 android:text="@string/AUD_stab"
                 android:textSize="@dimen/main_font_size" />
@@ -37,6 +39,7 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="@string/Valute_stab" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

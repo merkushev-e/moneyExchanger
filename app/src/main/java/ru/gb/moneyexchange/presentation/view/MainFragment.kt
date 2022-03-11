@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat.recreate
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.gb.moneyexchange.R
@@ -12,6 +15,7 @@ import ru.gb.moneyexchange.presentation.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.gb.moneyexchange.databinding.FragmentMainBinding
 import ru.gb.moneyexchange.domain.AppState
+import ru.gb.moneyexchange.presentation.OnlineLiveData
 import ru.gb.moneyexchange.presentation.viewmodel.MainAdapter
 
 class MainFragment : Fragment() {
@@ -43,12 +47,15 @@ class MainFragment : Fragment() {
             mainActivityRecyclerview.adapter = adapter
             mainActivityRecyclerview.layoutManager =
                 LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            swipeRefreshLayout.setOnRefreshListener {
+                startLoadingOrShowError()
+            }
         }
 
-        initView()
+        getData()
     }
 
-    fun initView(){
+    fun getData() {
         viewModel.getData(true)
         viewModel.liveData.observe(viewLifecycleOwner) { appstate ->
             renderData(appstate)
@@ -60,18 +67,22 @@ class MainFragment : Fragment() {
             is AppState.Success -> {
                 val data = appState.data
                 if (data == null || data.valute.isEmpty()) {
-                    showErrorScreen("sdad")
+
+                    showErrorScreen(getString(R.string.empty_server_response_on_success))
                 } else {
+                    stopRefreshAnimationIfNeeded()
                     showViewSuccess()
                     adapter.setData(data.valute)
                 }
             }
 
             is AppState.Loading -> {
+                stopRefreshAnimationIfNeeded()
                 showViewLoading()
             }
 
-            is AppState.Error ->{
+            is AppState.Error -> {
+                stopRefreshAnimationIfNeeded()
                 showErrorScreen(appState.error.message)
             }
         }
@@ -91,7 +102,7 @@ class MainFragment : Fragment() {
         }
     }
 
-        private fun showViewSuccess() {
+    private fun showViewSuccess() {
         binding.successLinearLayout.visibility = View.VISIBLE
         binding.loadingFrameLayout.visibility = View.GONE
         binding.errorLinearLayout.visibility = View.GONE
@@ -109,6 +120,29 @@ class MainFragment : Fragment() {
         binding.loadingFrameLayout.visibility = View.GONE
         binding.errorLinearLayout.visibility = View.VISIBLE
     }
+
+
+    private fun startLoadingOrShowError() {
+        OnlineLiveData(requireContext()).observe(
+            viewLifecycleOwner,
+            Observer<Boolean> {
+                if (it) {
+//                    recreate(requireActivity())
+                    getData()
+                } else {
+                    Toast.makeText(requireContext(), "Check Network Settings", Toast.LENGTH_SHORT)
+                        .show()
+                    stopRefreshAnimationIfNeeded()
+                }
+            })
+    }
+
+    private fun stopRefreshAnimationIfNeeded() {
+        if (binding.swipeRefreshLayout.isRefreshing) {
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
+    }
+
 
     companion object {
         fun newInstance() = MainFragment()
