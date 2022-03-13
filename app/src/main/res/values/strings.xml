@@ -11,4 +11,14 @@
     <string name="equal">=</string>
     <string name="nominal">1</string>
     <string name="empty_server_response_on_success">Response from server is empty</string>
+    <string name="checj_network">Check Network Settings</string>
+
+
+    <string-array name="currency">
+        <item>AED</item>
+        <item>USD</item>
+        <item>AED</item>
+        <item>USD</item>
+        <item>RUB</item>
+    </string-array>
 </resources>

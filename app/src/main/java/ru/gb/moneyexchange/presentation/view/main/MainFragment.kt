@@ -1,4 +1,4 @@
-package ru.gb.moneyexchange.presentation.view
+package ru.gb.moneyexchange.presentation.view.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.app.ActivityCompat.recreate
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.gb.moneyexchange.databinding.FragmentMainBinding
 import ru.gb.moneyexchange.domain.AppState
 import ru.gb.moneyexchange.presentation.OnlineLiveData
+import ru.gb.moneyexchange.presentation.view.calculate.CalculateFragment
 import ru.gb.moneyexchange.presentation.viewmodel.MainAdapter
 
 class MainFragment : Fragment() {
@@ -25,6 +25,7 @@ class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
+    private val bundle = Bundle()
 
     private val adapter: MainAdapter by lazy {
         MainAdapter()
@@ -50,6 +51,14 @@ class MainFragment : Fragment() {
             swipeRefreshLayout.setOnRefreshListener {
                 startLoadingOrShowError()
             }
+
+
+            floatingActionButton.setOnClickListener{
+               val calculateFragment = CalculateFragment.newInstance(bundle)
+               calculateFragment.show(parentFragmentManager,
+                   BOTTOM_SHEET_FRAGMENT_DIALOG_TAG
+               )
+            }
         }
 
         getData()
@@ -73,6 +82,7 @@ class MainFragment : Fragment() {
                     stopRefreshAnimationIfNeeded()
                     showViewSuccess()
                     adapter.setData(data.valute)
+                    bundle.putParcelable (CalculateFragment.CURRENCY_RATE, data)
                 }
             }
 
@@ -127,10 +137,9 @@ class MainFragment : Fragment() {
             viewLifecycleOwner,
             Observer<Boolean> {
                 if (it) {
-//                    recreate(requireActivity())
                     getData()
                 } else {
-                    Toast.makeText(requireContext(), "Check Network Settings", Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), getString(R.string.checj_network), Toast.LENGTH_SHORT)
                         .show()
                     stopRefreshAnimationIfNeeded()
                 }
@@ -143,8 +152,15 @@ class MainFragment : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
+
 
     companion object {
+        private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG =
+            "BOTTOM_SHEET_FRAGMENT"
         fun newInstance() = MainFragment()
     }
 }

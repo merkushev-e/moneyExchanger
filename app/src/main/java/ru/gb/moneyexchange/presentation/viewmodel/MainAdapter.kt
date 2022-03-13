@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ru.gb.moneyexchange.R
 import ru.gb.moneyexchange.data.retrofit.model.MoneyItem
-import ru.gb.moneyexchange.domain.model.ExchangeData
-import ru.gb.moneyexchange.getFlag
+import ru.gb.moneyexchange.domain.Countries
+
 
 class MainAdapter: RecyclerView.Adapter<MainAdapter.RecyclerItemViewHolder>() {
 
@@ -42,7 +42,7 @@ class MainAdapter: RecyclerView.Adapter<MainAdapter.RecyclerItemViewHolder>() {
                 itemView.findViewById<TextView>(R.id.name).text = data.Name
                 itemView.findViewById<TextView>(R.id.value).text = data.Value.toString()
                 itemView.findViewById<TextView>(R.id.nominal).text = data.Nominal.toString()
-                itemView.findViewById<ImageView>(R.id.flag_icon).setImageResource(getFlag(data.CharCode))
+                itemView.findViewById<ImageView>(R.id.flag_icon).setImageResource(Countries.getFlag(data.CharCode))
             }
         }
     }
