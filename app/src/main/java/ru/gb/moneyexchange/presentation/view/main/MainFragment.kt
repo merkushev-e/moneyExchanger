@@ -1,12 +1,12 @@
 package ru.gb.moneyexchange.presentation.view.main
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.gb.moneyexchange.R
@@ -14,9 +14,10 @@ import ru.gb.moneyexchange.presentation.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.gb.moneyexchange.databinding.FragmentMainBinding
 import ru.gb.moneyexchange.domain.AppState
-import ru.gb.moneyexchange.presentation.OnlineLiveData
 import ru.gb.moneyexchange.presentation.view.calculate.CalculateFragment
 import ru.gb.moneyexchange.presentation.viewmodel.MainAdapter
+import ru.gb.moneyexchange.util.OnlineLiveData
+
 
 class MainFragment : Fragment() {
 
@@ -26,11 +27,18 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val bundle = Bundle()
+    private var isNetworkAvailable: Boolean = false
 
     private val adapter: MainAdapter by lazy {
         MainAdapter()
     }
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        subscribeToNetworkChange()
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,11 +69,11 @@ class MainFragment : Fragment() {
             }
         }
 
-        getData()
+        getData(isNetworkAvailable)
     }
 
-    fun getData() {
-        viewModel.getData(true)
+    private fun getData(isOnline: Boolean) {
+        viewModel.getData(isOnline)
         viewModel.liveData.observe(viewLifecycleOwner) { appstate ->
             renderData(appstate)
         }
@@ -133,17 +141,15 @@ class MainFragment : Fragment() {
 
 
     private fun startLoadingOrShowError() {
-        OnlineLiveData(requireContext()).observe(
-            viewLifecycleOwner,
-            Observer<Boolean> {
-                if (it) {
-                    getData()
+                if (isNetworkAvailable) {
+                    getData(ONLINE)
                 } else {
-                    Toast.makeText(requireContext(), getString(R.string.checj_network), Toast.LENGTH_SHORT)
+                    Toast.makeText(requireContext(), getString(R.string.saved_data_showed), Toast.LENGTH_LONG)
                         .show()
+                    getData(OFFLINE)
                     stopRefreshAnimationIfNeeded()
                 }
-            })
+
     }
 
     private fun stopRefreshAnimationIfNeeded() {
@@ -152,13 +158,34 @@ class MainFragment : Fragment() {
         }
     }
 
+
+
+    private fun subscribeToNetworkChange() {
+        OnlineLiveData(requireContext()).observe(
+            this
+        ) {
+            isNetworkAvailable = it
+            if (!isNetworkAvailable) {
+                Toast.makeText(
+                    requireContext(),
+                    R.string.checj_network,
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
+        _binding = null
 
     }
 
 
     companion object {
+        private const val ONLINE = true
+        private const val OFFLINE = false
+
         private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG =
             "BOTTOM_SHEET_FRAGMENT"
         fun newInstance() = MainFragment()

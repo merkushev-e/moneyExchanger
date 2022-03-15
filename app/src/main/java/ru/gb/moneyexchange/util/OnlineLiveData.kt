@@ -1,4 +1,4 @@
-package ru.gb.moneyexchange.presentation
+package ru.gb.moneyexchange.util
 
 import android.content.Context
 import android.net.ConnectivityManager

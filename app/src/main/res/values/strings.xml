@@ -12,6 +12,8 @@
     <string name="nominal">1</string>
     <string name="empty_server_response_on_success">Response from server is empty</string>
     <string name="checj_network">Check Network Settings</string>
+    <string name="result_in_rubles">Result in rubles:</string>
+    <string name="saved_data_showed">Saved currency showed, to update check your internet connection</string>
 
 
     <string-array name="currency">
