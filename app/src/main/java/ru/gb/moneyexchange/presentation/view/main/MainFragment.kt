@@ -2,6 +2,7 @@ package ru.gb.moneyexchange.presentation.view.main
 
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import ru.gb.moneyexchange.domain.AppState
 import ru.gb.moneyexchange.presentation.view.calculate.CalculateFragment
 import ru.gb.moneyexchange.presentation.viewmodel.MainAdapter
 import ru.gb.moneyexchange.util.OnlineLiveData
+import ru.gb.moneyexchange.util.updateTimer
 
 
 class MainFragment : Fragment() {
@@ -70,14 +72,18 @@ class MainFragment : Fragment() {
         }
 
         getData(isNetworkAvailable)
+
+
     }
 
     private fun getData(isOnline: Boolean) {
+        updateData()
         viewModel.getData(isOnline)
         viewModel.liveData.observe(viewLifecycleOwner) { appstate ->
             renderData(appstate)
         }
     }
+
 
     fun renderData(appState: AppState) {
         when (appState) {
@@ -175,9 +181,17 @@ class MainFragment : Fragment() {
         }
     }
 
+    private fun updateData() {
+        updateTimer(REFRESH_TIME_1MIN) {
+            startLoadingOrShowError()
+        }
+    }
+
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+
 
     }
 
@@ -185,6 +199,7 @@ class MainFragment : Fragment() {
     companion object {
         private const val ONLINE = true
         private const val OFFLINE = false
+        private const val REFRESH_TIME_1MIN: Long = 60000
 
         private const val BOTTOM_SHEET_FRAGMENT_DIALOG_TAG =
             "BOTTOM_SHEET_FRAGMENT"
