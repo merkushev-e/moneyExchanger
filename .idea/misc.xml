@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ad.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ae.xml" value="0.1995" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/af.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ag.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ai.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/al.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/am.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/an.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ao.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/aq.xml" value="0.21" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ar.xml" value="0.1995" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/au.xml" value="0.16" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ba.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/bg.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/bj.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/bl.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/br.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/bs.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/by.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/dominican.xml" value="0.1995" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/gq.xml" value="0.1995" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ic_baseline_calculate_24.xml" value="0.1545" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ic_launcher_background.xml" value="0.245" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ic_no_photo_vector.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/kg.xml" value="0.186" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/kr.xml" value="0.186" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/kz.xml" value="0.186" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/rs.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ru.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/rw.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sa.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sb.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sc.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sd.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/se.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sg.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sh.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/si.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sj.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sk.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sl.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sm.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sn.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/so.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sr.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/ss.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/st.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sv.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sx.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sy.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/sz.xml" value="0.1955" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/tm.xml" value="0.186" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/drawable/yt.xml" value="0.186" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/layout/activity_main.xml" value="0.19166666666666668" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/layout/calculate_fragment.xml" value="0.2390625" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/layout/fragment_blank.xml" value="0.19166666666666668" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/layout/fragment_main.xml" value="0.19166666666666668" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/layout/fragment_main_list_item.xml" value="0.22" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/layout/item_dropdown.xml" value="0.2390625" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1995" />
+        <entry key="..\:/Android/Work_project/MoneyExchange/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1995" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
